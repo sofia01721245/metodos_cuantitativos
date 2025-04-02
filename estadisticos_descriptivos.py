@@ -22,3 +22,4 @@ plt.ylabel('Density')
 plt.title('Histograms of Normally Distributed Data')
 plt.legend()
 plt.show()
+
