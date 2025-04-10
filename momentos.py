@@ -1,9 +1,11 @@
 import numpy as np
+from scipy.stats import kurtosis
+from scipy.stats import skew
 
 arr = [0] * 10
 #arr=[1, 1, 2, 1, 3, 4, 2,1, 3, 2]
 
-arr=[4,2,2,2,1,2,1,2,4,3,3,1,3,3,4,3,3,1,4,5,5,2,1,5,1,4,2,5,3,2,5,3,1,5,3,2,3,2,4,3,3,2,3,1,3,1,3,5,2,1,1,5,5,5,2,5,2,1,4,5,3,3,1,1,3,2,1,4,1,4,3,3,3,5,4,1,5,4,1,2,2,4,1,3,1,2,3,1,3,4,2,3,5,4,1,3,1,3,4]
+arr=[11, 8, 2, 3, 1, 4, 5, 3, 4, 6, 2, 3, 4, 4, 5, 7, 9, 3, 3, 1, 4, 7, 2, 3, 2, 2, 1, 5, 5, 7, 8, 9, 10, 4, 3, 2, 6, 9, 11, 3, 3, 4, 12, 5, 6, 8, 30, 6, 10, 13]
 n = len(arr)
 
 #User input n
@@ -50,6 +52,10 @@ fourth_moment = 0
 for i in range(n):
     fourth_moment += arr[i]**4
 fourth_moment /= n
+kurtos = kurtosis(arr)
+kur = fourth_moment/((variance**0.5)**4)
+
+asymetry = skew(arr)
 
 #Values of each moment
 print(f"0 Moment: {zero_moment:.2f}")
@@ -57,5 +63,8 @@ print(f"First moment: {first_moment:.2f}")
 print(f"Second moment: {second_moment:.2f}")
 print(f"Variance: {variance:.2f}")
 print(f"Variance (numpy): {var2:.2f}")
+print(f"Kurtosis: {kurtos:.2f}")
+print(f"Kurtosis (manual): {kur:.2f}")
+print(f"Asymmetry: {asymetry:.2f}")
 print(f"Third moment: {third_moment:.2f}")
 print(f"Fourth moment: {fourth_moment:.2f}")
